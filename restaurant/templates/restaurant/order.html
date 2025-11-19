@@ -1,0 +1,18 @@
+{% extends 'restaurant/base.html' %}
+{% block content %}
+<h2>Place Order</h2>
+<form method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label>Customer Name</label>
+    <input type="text" name="customer_name" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label>Select Items:</label><br>
+    {% for item in items %}
+      <input type="checkbox" name="items" value="{{ item.id }}"> {{ item.name }} (₹{{ item.price }})<br>
+    {% endfor %}
+  </div>
+  <button type="submit" class="btn btn-primary">Generate Bill</button>
+</form>
+{% endblock %}

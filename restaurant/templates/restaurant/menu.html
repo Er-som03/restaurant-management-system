@@ -1,0 +1,10 @@
+{% extends 'restaurant/base.html' %}
+{% block content %}
+<h2>Menu</h2>
+<table class="table table-striped">
+  <tr><th>Name</th><th>Category</th><th>Price</th></tr>
+  {% for item in items %}
+  <tr><td>{{ item.name }}</td><td>{{ item.category }}</td><td>₹{{ item.price }}</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'restaurant/base.html' %}
+{% block content %}
+<h2>Bill</h2>
+<p><strong>Customer:</strong> {{ order.customer_name }}</p>
+<p><strong>Items Ordered:</strong></p>
+<ul>
+  {% for item in order.items.all %}
+    <li>{{ item.name }} - ₹{{ item.price }}</li>
+  {% endfor %}
+</ul>
+<h4>Total Amount: ₹{{ order.total_amount }}</h4>
+<p><strong>Order Time:</strong> {{ order.order_time }}</p>
+{% endblock %}
